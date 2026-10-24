@@ -1,0 +1,17 @@
+{
+  "name": "עולם גירית הדבש",
+  "short_name": "גירית הדבש",
+  "description": "עובדות, טריוויה ומשחקים על בעל החיים חסר הפחד ביותר בעולם",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#171614",
+  "theme_color": "#171614",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

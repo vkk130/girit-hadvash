@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>עולם גירית הדבש — עובדות, טריוויה ומשחקים</title>
+<meta name="description" content="הבית של חובבי גירית הדבש: עובדה חדשה פעמיים בשבוע, טריוויה עם לוח מובילים, משחקים וקיר סיפורים. הכל על בעל החיים חסר הפחד ביותר בעולם.">
+<link rel="canonical" href="https://vkk130.github.io/girit-hadvash/">
+<meta name="theme-color" content="#171614">
+
+<!-- תצוגה מקדימה בוואטסאפ, פייסבוק ורשתות אחרות -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="עולם גירית הדבש">
+<meta property="og:title" content="עולם גירית הדבש 🦡 — עובדות, טריוויה ומשחקים">
+<meta property="og:description" content="בעל החיים שלא מפחד משום דבר. עובדה חדשה פעמיים בשבוע, טריוויה עם לוח מובילים וקיר סיפורים.">
+<meta property="og:url" content="https://vkk130.github.io/girit-hadvash/">
+<meta property="og:image" content="https://vkk130.github.io/girit-hadvash/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ציור של גירית דבש והכיתוב עולם גירית הדבש">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Suez+One&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#facts">דלג לתוכן</a>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="ניווט ראשי">
+  <a href="#top" class="nav-brand">
+    <img src="assets/favicon.svg" alt="" width="34" height="34">
+    גירית הדבש
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="תפריט" aria-expanded="false" aria-controls="navLinks">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#facts">עובדת השבוע</a></li>
+    <li><a href="#trivia">טריוויה</a></li>
+    <li><a href="#games">משחקים</a></li>
+    <li><a href="#wall">קיר הסיפורים</a></li>
+    <li><a href="#leaderboard">לוח מובילים</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <img class="hero-badger" src="assets/badger.svg" alt="ציור של גירית דבש" width="400" height="220">
+    <h1>עולם <span class="accent">גירית הדבש</span></h1>
+    <p class="tagline">בעל החיים שלא מפחד משום דבר — לא מנחשים, לא מדבורים, לא מאריות. עובדות אמיתיות, טריוויה קשוחה ומשחקים.</p>
+    <div class="hero-cta">
+      <a href="#trivia" class="btn btn-primary">שחקו טריוויה</a>
+      <a href="#facts" class="btn btn-outline">עובדת השבוע</a>
+    </div>
+    <div class="share-row">
+      <button class="btn share-btn share-whatsapp" data-share="whatsapp">שתף בוואטסאפ</button>
+      <button class="btn share-btn share-instagram" data-share="instagram">שתף באינסטגרם</button>
+    </div>
+  </div>
+</header>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<main>
+<!-- ===== עובדת השבוע ===== -->
+<section class="section" id="facts" aria-labelledby="facts-title">
+  <div class="section-head">
+    <div class="eyebrow">מתחלפת כל חמישי בבוקר ושבת בערב</div>
+    <h2 id="facts-title">עובדת גירית לסופ״ש טוב יותר</h2>
+    <p>עובדה חדשה ומדויקת, פעמיים בשבוע. הוסיפו תזכורת ליומן כדי לא לפספס אף אחת.</p>
+  </div>
+  <article class="fact-card">
+    <div class="fact-number" id="factNumber"></div>
+    <p class="fact-text" id="factText">טוען עובדה…</p>
+    <div class="fact-meta">
+      <div class="fact-countdown" id="factCountdown"></div>
+      <div class="fact-actions">
+        <div class="cal-wrap">
+          <button class="btn btn-primary btn-small" id="factCalBtn" aria-haspopup="true" aria-expanded="false">📅 תזכורת ביומן</button>
+          <div class="cal-menu" id="calMenu" hidden>
+            <a id="calGoogleThu" target="_blank" rel="noopener">יומן גוגל — כל חמישי 09:00</a>
+            <a id="calGoogleSat" target="_blank" rel="noopener">יומן גוגל — כל שבת 20:00</a>
+            <button id="calIcs" type="button">אייפון / אאוטלוק (קובץ יומן)</button>
+          </div>
+        </div>
+        <button class="btn share-btn share-whatsapp btn-small" id="factShareWa">שתף בוואטסאפ</button>
+        <button class="btn share-btn share-instagram btn-small" id="factShareIg">שתף באינסטגרם</button>
+      </div>
+    </div>
+  </article>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ===== טריוויה ===== -->
+<section class="section section-alt" id="trivia" aria-labelledby="trivia-title">
+  <div class="section-head">
+    <div class="eyebrow">7 שאלות בסבב · אפס פחד</div>
+    <h2 id="trivia-title">טריוויית גירית הדבש</h2>
+    <p>ענו נכון על כל 7 השאלות וקבלו 50 נקודות. טעות אחת — מינוס 10, והסבב מתחיל מחדש. אחרי כל שאלה תלמדו משהו חדש.</p>
+  </div>
+  <div class="trivia-panel">
+    <div class="trivia-stats">
+      <span>הניקוד שלך: <b id="triviaScore">0</b></span>
+      <span>סבבים מושלמים: <b id="triviaRounds">0</b></span>
+    </div>
+    <div class="trivia-progress" id="triviaProgress" aria-hidden="true"></div>
+    <div id="triviaArea">
+      <div class="trivia-start">
+        <p>מוכנים? השאלות נבחרות באקראי מבנק של מאות שאלות, ולא חוזרות על עצמן עד שהבנק נגמר.</p>
+        <button class="btn btn-primary" data-action="start">התחל סבב</button>
+      </div>
+    </div>
+  </div>
+  <div class="share-row">
+    <button class="btn share-btn share-whatsapp" data-share="whatsapp" data-text="אתגר: 7 שאלות על גירית הדבש, אסור לטעות אפילו פעם אחת 🦡 מי מגיע ללוח המובילים?">אתגרו חברים בוואטסאפ</button>
+    <button class="btn share-btn share-instagram" data-share="instagram" data-text="אתגר טריוויית גירית הדבש 🦡">שתף באינסטגרם</button>
+  </div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ===== משחקים ===== -->
+<section class="section" id="games" aria-labelledby="games-title">
+  <div class="section-head">
+    <div class="eyebrow">שני משחקים קצרים</div>
+    <h2 id="games-title">מגרש המשחקים של הגירית</h2>
+    <p>גם גירית צריכה הפסקה מנחשים ודבורים.</p>
+  </div>
+  <div class="games-grid">
+    <div class="game-card">
+      <h3>🧠 זיכרון של גירית</h3>
+      <p class="desc">מצאו את כל הזוגות בכמה שפחות מהלכים. לגירית יש ראייה חלשה — לכם לא חייבת להיות.</p>
+      <div class="game-stats"><span id="memoryMoves">מהלכים: 0</span><span id="memoryBest"></span></div>
+      <div class="memory-grid" id="memoryGrid"></div>
+      <div class="game-foot">
+        <button class="btn btn-outline btn-small" id="memoryReset">משחק חדש</button>
+        <button class="btn share-btn share-whatsapp btn-small" data-share="whatsapp" data-text="שיחקתי בזיכרון של גירית 🦡 כמה מהלכים ייקח לכם?">שתף</button>
+      </div>
+    </div>
+    <div class="game-card">
+      <h3>🏃 בריחה בסוואנה</h3>
+      <p class="desc">אספו צנצנות דבש 🍯, התחמקו מנחשים, עקרבים וסלעים. דבורה 🐝 מחזירה לב. גררו באצבע או השתמשו בחצים.</p>
+      <div class="game-stats"><span id="dodgeScore">ניקוד: 0</span><span id="dodgeBest">שיא: 0</span></div>
+      <div class="dodge-canvas-wrap">
+        <canvas id="dodgeCanvas" aria-label="משחק בריחה בסוואנה"></canvas>
+        <div class="dodge-overlay" id="dodgeOverlay">
+          <p>גררו את הגירית ימינה ושמאלה</p>
+          <button class="btn btn-primary btn-small" id="dodgeStart">התחל משחק</button>
+        </div>
+      </div>
+      <div class="game-foot">
+        <button class="btn share-btn share-whatsapp btn-small" data-share="whatsapp" data-text="שברתי שיא בבריחה בסוואנה 🦡🍯 נראה אתכם:">שתף</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ===== קיר הסיפורים ===== -->
+<section class="section section-alt" id="wall" aria-labelledby="wall-title">
+  <div class="section-head">
+    <div class="eyebrow">קהילה</div>
+    <h2 id="wall-title">קיר הסיפורים: מה קרה לך עם גירית?</h2>
+    <p>פגשתם גירית בערבה? ראיתם סרטון שאי אפשר לשכוח? למדתם עובדה מטורפת? ספרו לכולם.</p>
+    <p class="wall-mode" id="wallMode" hidden>הקיר המשותף לא זמין כרגע — סיפורים חדשים יישמרו רק במכשיר הזה.</p>
+  </div>
+  <form class="post-form" id="postForm" novalidate>
+    <div class="field">
+      <label for="postName">איך קוראים לך?</label>
+      <input type="text" id="postName" maxlength="40" placeholder="למשל: דנה" autocomplete="nickname">
+    </div>
+    <fieldset class="field">
+      <legend>איפה פגשת את הגירית?</legend>
+      <div class="chip-group">
+        <label><input type="radio" name="postKind" value="בטבע" checked><span>🏜️ בטבע</span></label>
+        <label><input type="radio" name="postKind" value="בגן חיות"><span>🦓 בגן חיות</span></label>
+        <label><input type="radio" name="postKind" value="בסרטון"><span>📺 בסרטון</span></label>
+        <label><input type="radio" name="postKind" value="עובדה שלמדתי"><span>📚 עובדה שלמדתי</span></label>
+        <label><input type="radio" name="postKind" value="בחלום"><span>💭 בחלום</span></label>
+      </div>
+    </fieldset>
+    <div class="field">
+      <label for="postWhere">איפה בדיוק? <small>(לא חובה)</small></label>
+      <input type="text" id="postWhere" maxlength="40" placeholder="למשל: ליד עין יהב / ספארי ברמת גן / יוטיוב">
+    </div>
+    <div class="field">
+      <label for="postWhat">מה הגירית עשתה שהשאיר אותך בהלם?</label>
+      <textarea id="postWhat" maxlength="500" placeholder="ספרו את הרגע: מה היא עשתה, מי עוד היה שם, ואיך זה נגמר…" required></textarea>
+      <div class="counter" id="whatCounter">0/500</div>
+    </div>
+    <fieldset class="field">
+      <legend>מה מצב הרוח של הסיפור?</legend>
+      <div class="emoji-picker" id="moodPicker" role="radiogroup"></div>
+    </fieldset>
+    <fieldset class="field">
+      <legend>בסולם הגיריות, כמה מטורף היה הרגע? <span class="scale-label" id="scaleLabel"></span></legend>
+      <div class="badger-scale" id="badgerScale" role="radiogroup"></div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">פרסם על הקיר</button>
+  </form>
+  <div class="posts-wall" id="postsWall" aria-live="polite"></div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ===== לוח מובילים ===== -->
+<section class="section" id="leaderboard" aria-labelledby="lb-title">
+  <div class="section-head">
+    <div class="eyebrow">אולם התהילה</div>
+    <h2 id="lb-title">לוח המובילים בטריוויה</h2>
+    <p>עשרת השחקנים עם הכי הרבה נקודות. מתעדכן בזמן אמת.</p>
+  </div>
+  <div class="leaderboard" id="leaderboardBody"></div>
+  <div class="lb-actions">
+    <button class="btn btn-outline btn-small" id="leaderboardJoin">הצטרפות ללוח / שינוי שם</button>
+  </div>
+  <div class="share-row">
+    <button class="btn share-btn share-whatsapp" data-share="whatsapp" data-text="יש לוח מובילים לטריוויית גירית הדבש 🦡 בואו נראה מי מכם יגיע לעשירייה הראשונה">אתגרו חברים בוואטסאפ</button>
+    <button class="btn share-btn share-instagram" data-share="instagram" data-text="לוח המובילים של גירית הדבש 🦡">שתף באינסטגרם</button>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <img src="assets/favicon.svg" alt="" width="40" height="40">
+  <p>נבנה באהבה לבעל החיים חסר הפחד ביותר בעולם.</p>
+  <p class="small">העובדות מבוססות על מחקרים ותיעודים של התנהגות גירית הדבש. מצאתם טעות? ספרו לנו בקיר הסיפורים.</p>
+  <div class="share-row">
+    <button class="btn share-btn share-whatsapp btn-small" data-share="whatsapp">שתף בוואטסאפ</button>
+    <button class="btn share-btn share-instagram btn-small" data-share="instagram">שתף באינסטגרם</button>
+  </div>
+</footer>
+
+<!-- ===== חלונות ===== -->
+<div class="modal" id="nameModal" hidden role="dialog" aria-modal="true" aria-labelledby="nameTitle">
+  <form class="modal-box" id="nameForm">
+    <h3 id="nameTitle">🏆 הצטרפו ללוח המובילים</h3>
+    <p>איזה שם יופיע בלוח? (בלי הרשמה, בלי סיסמה)</p>
+    <input id="nameInput" type="text" maxlength="24" placeholder="השם שלך" autocomplete="nickname">
+    <div class="modal-actions">
+      <button type="submit" class="btn btn-primary btn-small">שמור</button>
+      <button type="button" id="nameSkip" class="btn btn-outline btn-small">לא עכשיו</button>
+    </div>
+  </form>
+</div>
+
+<div class="modal" id="cardModal" hidden role="dialog" aria-modal="true" aria-label="כרטיס ניקוד לשיתוף">
+  <div class="modal-box card-box">
+    <button class="modal-close" id="cardClose" aria-label="סגור">✕</button>
+    <canvas id="scoreCanvas" width="1080" height="1080"></canvas>
+    <div class="modal-actions">
+      <button class="btn share-btn share-instagram btn-small" id="cardShare">שתף לסטורי</button>
+      <button class="btn share-btn share-whatsapp btn-small" id="cardWa">שתף בוואטסאפ</button>
+      <button class="btn btn-outline btn-small" id="cardDownload">שמור תמונה</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="facts.js"></script>
+<script src="trivia.js"></script>
+<script src="script.js"></script>
+<script type="module" src="firebase.js"></script>
+</body>
+</html>

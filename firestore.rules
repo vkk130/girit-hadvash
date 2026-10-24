@@ -1,0 +1,47 @@
+rules_version = '2';
+
+// כללי אבטחה לאתר גירית הדבש.
+// כולם יכולים לקרוא. כתיבה מותרת רק במבנה הנכון, באורכים סבירים, ובלי אפשרות למחוק או לערוך פוסטים של אחרים.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---- קיר הסיפורים ----
+    match /posts/{postId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(['name', 'where', 'what', 'mood', 'rating', 'createdAt'])
+        && request.resource.data.keys().hasAll(['name', 'where', 'what', 'mood', 'rating', 'createdAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 1 && request.resource.data.name.size() <= 40
+        && request.resource.data.where is string && request.resource.data.where.size() <= 60
+        && request.resource.data.what is string
+        && request.resource.data.what.size() >= 10 && request.resource.data.what.size() <= 500
+        && request.resource.data.mood in ['😱', '😂', '🥹', '😨', '🥳', '🤔']
+        && request.resource.data.rating is int
+        && request.resource.data.rating >= 1 && request.resource.data.rating <= 5
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+
+    // ---- לוח המובילים ----
+    function validPlayer(data) {
+      return data.keys().hasOnly(['name', 'score', 'updatedAt'])
+        && data.keys().hasAll(['name', 'score', 'updatedAt'])
+        && data.name is string && data.name.size() >= 1 && data.name.size() <= 24
+        && data.score is int && data.score >= 0
+        && data.updatedAt == request.time;
+    }
+
+    match /leaderboard/{playerId} {
+      allow read: if true;
+      // שחקן חדש: מזהה סביר ותקרת ניקוד התחלתית
+      allow create: if playerId.size() >= 8 && playerId.size() <= 40
+        && validPlayer(request.resource.data)
+        && request.resource.data.score <= 500;
+      // עדכון: לכל היותר +50 נקודות בכל פעם, ולא יותר מעדכון אחד בכל 10 שניות
+      allow update: if validPlayer(request.resource.data)
+        && request.resource.data.score <= resource.data.score + 50
+        && request.time > resource.data.updatedAt + duration.value(10, 's');
+      allow delete: if false;
+    }
+  }
+}
