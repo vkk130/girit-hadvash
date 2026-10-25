@@ -1,7 +1,7 @@
 // Service worker מינימלי: מאפשר התקנה כאפליקציה ועובד גם כשהרשת חלשה.
 // קודם רשת (כדי שעדכונים יופיעו מיד), ואם אין רשת — מהמטמון.
-const CACHE = "gerit-v1";
-const CORE = ["./", "index.html", "style.css", "script.js", "facts.js", "trivia.js", "assets/badger.svg", "assets/favicon.svg"];
+const CACHE = "gerit-v2";
+const CORE = ["./", "index.html", "stories.html", "games.html", "style.css", "js/common.js", "js/home.js", "js/stories.js", "js/games.js", "facts.js", "trivia.js", "assets/badger.svg", "assets/favicon.svg"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));

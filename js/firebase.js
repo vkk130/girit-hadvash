@@ -27,8 +27,8 @@ function toMillis(ts) {
 
 window.GeritDB = {
   /** מאזין לפוסטים האחרונים. cb מקבל מערך פוסטים, מהחדש לישן. */
-  subscribePosts(cb, onError) {
-    const q = query(collection(db, "posts"), orderBy("createdAt", "desc"), limit(60));
+  subscribePosts(cb, onError, max = 60) {
+    const q = query(collection(db, "posts"), orderBy("createdAt", "desc"), limit(max));
     return onSnapshot(q, (snap) => {
       cb(snap.docs.map((d) => {
         const data = d.data({ serverTimestamps: "estimate" });

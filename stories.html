@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>קיר הסיפורים — עולם גירית הדבש</title>
+<meta name="description" content="פגשתם גירית דבש בטבע, בגן חיות או בסרטון? ספרו את הסיפור לכל חובבי הגיריות.">
+<link rel="canonical" href="https://vkk130.github.io/girit-hadvash/stories.html">
+<meta name="theme-color" content="#171614">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="עולם גירית הדבש">
+<meta property="og:title" content="קיר הסיפורים של גירית הדבש 🦡">
+<meta property="og:description" content="פגשתם גירית דבש בטבע, בגן חיות או בסרטון? ספרו את הסיפור לכל חובבי הגיריות.">
+<meta property="og:url" content="https://vkk130.github.io/girit-hadvash/stories.html">
+<meta property="og:image" content="https://vkk130.github.io/girit-hadvash/assets/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ציור של גירית דבש והכיתוב עולם גירית הדבש">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Suez+One&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">דלג לתוכן</a>
+<nav class="nav" aria-label="ניווט ראשי">
+  <a href="index.html" class="nav-brand">
+    <img src="assets/favicon.svg" alt="" width="34" height="34">
+    גירית הדבש
+  </a>
+  <button class="nav-toggle" id="navToggle" aria-label="תפריט" aria-expanded="false" aria-controls="navLinks">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">עובדת השבוע</a></li>
+    <li><a href="stories.html" aria-current="page">קיר הסיפורים</a></li>
+    <li><a href="games.html">משחקים וטריוויה</a></li>
+  </ul>
+</nav>
+
+<header class="page-hero">
+  <span class="eyebrow">קהילה</span>
+  <h1>קיר הסיפורים</h1>
+  <p>פגשתם גירית בערבה? ראיתם סרטון שאי אפשר לשכוח? למדתם עובדה מטורפת? כאן מספרים — ומדרגים בסולם הגיריות.</p>
+  <p class="wall-mode" id="wallMode" hidden>הקיר המשותף לא זמין כרגע — סיפורים חדשים יישמרו רק במכשיר הזה.</p>
+</header>
+<div class="torn-divider" aria-hidden="true"></div>
+
+<main id="main" class="section">
+  <div class="wall-layout">
+    <form class="post-form panel reveal" id="postForm" novalidate>
+      <h2>ספרו את הסיפור שלכם</h2>
+      <p>בלי הרשמה. רק השם שלכם, הסיפור, וכמה מטורף הוא היה.</p>
+      <div class="field">
+        <label for="postName">איך קוראים לך?</label>
+        <input type="text" id="postName" maxlength="40" placeholder="למשל: דנה" autocomplete="nickname">
+      </div>
+      <fieldset class="field">
+        <legend>איפה פגשת את הגירית?</legend>
+        <div class="chip-group">
+          <label><input type="radio" name="postKind" value="בטבע" checked><span>🏜️ בטבע</span></label>
+          <label><input type="radio" name="postKind" value="בגן חיות"><span>🦓 בגן חיות</span></label>
+          <label><input type="radio" name="postKind" value="בסרטון"><span>📺 בסרטון</span></label>
+          <label><input type="radio" name="postKind" value="עובדה שלמדתי"><span>📚 עובדה שלמדתי</span></label>
+          <label><input type="radio" name="postKind" value="בחלום"><span>💭 בחלום</span></label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="postWhere">איפה בדיוק? <small>(לא חובה)</small></label>
+        <input type="text" id="postWhere" maxlength="40" placeholder="ליד עין יהב / ספארי ברמת גן / יוטיוב">
+      </div>
+      <div class="field">
+        <label for="postWhat">מה הגירית עשתה שהשאיר אותך בהלם?</label>
+        <textarea id="postWhat" maxlength="500" placeholder="ספרו את הרגע: מה היא עשתה, מי עוד היה שם, ואיך זה נגמר…" required></textarea>
+        <div class="counter" id="whatCounter">0/500</div>
+      </div>
+      <fieldset class="field">
+        <legend>מה מצב הרוח של הסיפור?</legend>
+        <div class="emoji-picker" id="moodPicker" role="radiogroup"></div>
+      </fieldset>
+      <fieldset class="field">
+        <legend>בסולם הגיריות: <span class="scale-label" id="scaleLabel"></span></legend>
+        <div class="badger-scale" id="badgerScale" role="radiogroup"></div>
+      </fieldset>
+      <button type="submit" class="btn btn-primary" style="width:100%">פרסם על הקיר</button>
+    </form>
+    <section aria-label="הסיפורים">
+      <div class="game-stats"><span id="wallCount"></span></div>
+      <div class="wall-filters" id="wallFilters" role="toolbar" aria-label="סינון לפי סוג"></div>
+      <div class="posts-wall" id="postsWall" aria-live="polite"></div>
+      <div class="share-row">
+        <button class="btn share-whatsapp" data-share="whatsapp" data-url="stories.html" data-text="יש קיר סיפורים של חובבי גירית הדבש 🦡 בואו תספרו גם אתם:">הזמינו חברים בוואטסאפ</button>
+        <button class="btn share-instagram" data-share="instagram" data-url="stories.html" data-text="קיר הסיפורים של גירית הדבש 🦡">שתפו באינסטגרם</button>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="footer">
+  <img src="assets/favicon.svg" alt="" width="40" height="40">
+  <p>נבנה באהבה לבעל החיים חסר הפחד ביותר בעולם.</p>
+  <nav class="footer-nav" aria-label="ניווט תחתון">
+    <a href="index.html">עובדת השבוע</a><a href="stories.html">קיר הסיפורים</a><a href="games.html">משחקים וטריוויה</a>
+  </nav>
+  <p class="small">העובדות מבוססות על מחקרים ותיעודים של התנהגות גירית הדבש. מצאתם טעות? ספרו לנו בקיר הסיפורים.</p>
+  <div class="share-row">
+    <button class="btn share-whatsapp btn-small" data-share="whatsapp">שתף בוואטסאפ</button>
+    <button class="btn share-instagram btn-small" data-share="instagram">שתף באינסטגרם</button>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/common.js"></script>
+<script src="js/stories.js"></script>
+<script type="module" src="js/firebase.js"></script>
+</body>
+</html>
